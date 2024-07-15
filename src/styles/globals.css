@@ -29,5 +29,14 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+
+    
+  }
+}
+
+@layer base{
+  @font-face {
+    font-family: "Belfort";
+    src: url("../../public/fonts/Belfort-Light.woff") format('woff');
   }
 }

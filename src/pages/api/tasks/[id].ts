@@ -19,7 +19,7 @@ const handler = async (req: AuthenticatedRequest, res: NextApiResponse) => {
       res.status(500).json({ error: 'Failed to fetch task' });
     }
   } else if (req.method === 'PUT') {
-    const { title, description, dueDate, priority, projectId, labelId } = req.body;
+    const { title, description, dueDate, priority, projectId, labelId, completed } = req.body;
     try {
       const task = await updateTask(parseInt(id as string, 10), {
         title,
@@ -28,6 +28,7 @@ const handler = async (req: AuthenticatedRequest, res: NextApiResponse) => {
         priority,
         projectId,
         labelId,
+        completed,
         userId: req.user.id
       });
       res.status(200).json(task);
@@ -37,7 +38,7 @@ const handler = async (req: AuthenticatedRequest, res: NextApiResponse) => {
   } else if (req.method === 'DELETE') {
     try {
       await deleteTask(parseInt(id as string, 10), req.user.id);
-      res.status(204).json({message:"Task Deleted"})
+      res.status(204).json({ message: "Task Deleted" });
     } catch (error) {
       res.status(500).json({ error: 'Failed to delete task' });
     }

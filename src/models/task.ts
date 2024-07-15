@@ -12,15 +12,16 @@ export interface Task {
   labelId?: number;
   createdAt: Date;
   updatedAt: Date;
+  completed: boolean; // New field for task completion status
 }
 
 export async function createTask(task: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>): Promise<Task> {
   const client = await pool.connect();
   try {
     const result = await client.query(
-      `INSERT INTO Tasks (title, description, dueDate, priority, userId, projectId, labelId) 
-       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-      [task.title, task.description, task.dueDate, task.priority, task.userId, task.projectId || null, task.labelId || null]
+      `INSERT INTO Tasks (title, description, dueDate, priority, userId, projectId, labelId, completed) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+      [task.title, task.description, task.dueDate, task.priority, task.userId, task.projectId || null, task.labelId || null, task.completed]
     );
     return result.rows[0];
   } catch (error) {
@@ -30,6 +31,7 @@ export async function createTask(task: Omit<Task, 'id' | 'createdAt' | 'updatedA
     client.release();
   }
 }
+
 
 export async function getTasks(userId: number): Promise<Task[]> {
   const client = await pool.connect();
@@ -63,8 +65,8 @@ export async function updateTask(id: number, task: Partial<Omit<Task, 'id' | 'cr
   const client = await pool.connect();
   try {
     const result = await client.query(
-      'UPDATE Tasks SET title = $1, description = $2, dueDate = $3, priority = $4, projectId = $5, labelId = $6, updatedAt = CURRENT_TIMESTAMP WHERE id = $7 AND userId = $8 RETURNING *',
-      [task.title, task.description, task.dueDate, task.priority, task.projectId || null, task.labelId || null, id, task.userId]
+      'UPDATE Tasks SET title = $1, description = $2, dueDate = $3, priority = $4, projectId = $5, labelId = $6, completed = $7, updatedAt = CURRENT_TIMESTAMP WHERE id = $8 AND userId = $9 RETURNING *',
+      [task.title, task.description, task.dueDate, task.priority, task.projectId || null, task.labelId || null, task.completed, id, task.userId]
     );
     return result.rows[0];
   } finally {
