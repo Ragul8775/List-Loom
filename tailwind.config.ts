@@ -6,26 +6,26 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         Belfort: "Belfort",
-       
+        jos: "Josefin Sans",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      colors:{
-        light:"#F7EBD7",
-        dark:"#292522",
-        darkSecond:"#90887D",
-        primary:"#4D6160",
-        primaryLight:"#485655",
-        secondary:"#EFD9B4",
-      }
+      colors: {
+        light: "#F7EBD7",
+        dark: "#292522",
+        darkSecond: "#90887D",
+        primary: "#4D6160",
+        primaryLight: "#485655",
+        secondary: "#EFD9B4",
+      },
     },
   },
   plugins: [],

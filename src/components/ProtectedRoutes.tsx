@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
       // Redirect to login if not authenticated
       router.push("/auth/login");
     }
-  }, [session, status, router]);
+  }, [session, status]);
 
   if (status === "loading" || !session) {
     return <div>Loading...</div>; // Show a loading state or nothing while checking auth status

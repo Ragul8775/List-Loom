@@ -6,7 +6,6 @@ export default function Signout() {
   const router = useRouter();
 
   useEffect(() => {
-    // Automatically sign out the user and redirect to the homepage
     signOut({ callbackUrl: "/" });
   }, [router]);
 

@@ -1,30 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
 @layer utilities {
   .text-balance {
@@ -39,4 +19,119 @@ body {
     font-family: "Belfort";
     src: url("../../public/fonts/Belfort-Light.woff") format('woff');
   }
+}
+.relative .dropdown-menu {
+  z-index: 50;
+}
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Roundness of the scrollbar handle */
+  border: 3px solid #f1f1f1; /* Space around the scrollbar handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the scrollbar handle when hovered */
+}
+.radio-input {
+  display: flex;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20%;
+}
+
+.glass {
+  z-index: 2;
+  height: 90%;
+  width: 35px;
+  margin-right: 15px;
+  padding: 8px;
+  background-color: rgba(190, 189, 189, 0.5);
+  border-radius: 35px;
+  box-shadow: rgba(50, 50, 93, 0.2) 0px 25px 50px -10px,
+   rgba(0, 0, 0, 0.25) 0px 10px 30px -15px,
+    rgba(10, 37, 64, 0.26) 0px -2px 6px 0px inset;
+  backdrop-filter: blur(8px);
+}
+
+.glass-inner {
+  width: 100%;
+  height: 100%;
+  border-color: rgba(245, 245, 245, 0.45);
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 30px
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+}
+
+.choice {
+  margin: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.choice > div {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  margin-right: 15px;
+  z-index: 0;
+}
+
+.choice-circle {
+  appearance: none;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  border-width: 9px;
+  border-style: solid;
+  border-color: rgba(245, 245, 245, 0.45);
+  cursor: pointer;
+  box-shadow: 0px 0px 20px -13px gray,
+  0px 0px 20px -14px gray inset;
+}
+
+.ball {
+  z-index: 1;
+  position: absolute;
+  inset: 0px;
+  transform: translateX(-35px);
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset,
+   rgba(0, 0, 0, 0.15) 0px -15px 15px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -40px 20px 0px inset,
+     rgba(0, 0, 0, 0.06) 0px 2px 1px, 
+     rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+     rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+     rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px,
+       0px -1px 15px -8px rgba(0, 0, 0, 0.09);
+  border-radius: 100%;
+  transition: transform 800ms cubic-bezier(1,-0.4,0,1.4);
+  background-color: rgb(134, 121, 121);
+}
+
+.choice-circle:checked + .ball {
+  transform: translateX(4px);
+  transform: translateY(4px);
+}
+
+.choice-name {
+  color: rgb(177, 176, 176);
+  font-size: 18px;
+  font-weight: 900;
+  font-family: monospace;
+  cursor: pointer;
 }

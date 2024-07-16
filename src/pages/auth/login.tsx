@@ -1,6 +1,8 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 export default function Login() {
   const router = useRouter();
@@ -42,26 +44,18 @@ export default function Login() {
         </h2>
         <div>
           <button
-            className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100"
+            className="w-full flex justify-center items-center gap-4 py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100"
             onClick={() => signIn("google")}
           >
-            <img
-              src="/path/to/google-logo.png"
-              alt="Google"
-              className="w-6 h-6 mr-2"
-            />
+            <FcGoogle className="w-6 h-6 " />
             Continue with Google
           </button>
 
           <button
-            className="w-full mt-2 flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100"
+            className="w-full mt-2 flex justify-center items-center gap-4 py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-gray-700 hover:bg-gray-100"
             onClick={() => signIn("github")}
           >
-            <img
-              src="/path/to/apple-logo.png"
-              alt="Apple"
-              className="w-6 h-6 mr-2"
-            />
+            <FaGithub className="w-6 h-6 " />
             Continue with Github
           </button>
         </div>
