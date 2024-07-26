@@ -57,7 +57,7 @@ export const Header = () => {
   }
 
   return (
-    <nav className="bg-white  my-1">
+    <nav className="bg-white  my-1 ">
       <div className="px-10 mx-auto">
         <div className="flex mx-auto justify-between ">
           {/* Primary menu and logo */}

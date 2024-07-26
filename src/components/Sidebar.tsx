@@ -20,7 +20,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col h-full w-64 bg-primary text-white rounded-r-lg px-2 m-1">
+    <div className="flex flex-col h-screen w-64 bg-primary text-white rounded-r-lg px-2 ">
       <div className="flex items-center justify-start gap-4 px-4 h-16  bg-primary">
         <Image
           src={"/assets/logo-white.png"}
@@ -33,7 +33,7 @@ const Sidebar = () => {
       <div className="flex flex-col flex-1 overflow-y-auto">
         <nav className="px-4 py-2 space-y-1">
           <Link
-            href="/home"
+            href="/"
             className="flex items-center justify-start px-4 py-2 text-gray-300 hover:bg-primaryLight rounded gap-2 text-lg"
           >
             <PiSquaresFourBold className="w-6 h-6" />
