@@ -7,7 +7,7 @@ const ThemeToggle: React.FC = () => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <div className="flex items-center justify-between gap-4 py-2 px-2 bg-primaryLight rounded-lg shadow-lg ">
+    <div className="flex items-center justify-between gap-4 py-2 px-2 bg-primaryLight rounded-lg shadow-lg mb-4">
       <button
         className={`flex items-center px-4 py-2 rounded-lg justify-center w-2/3 ${
           theme === "light" ? "bg-white text-gray-900" : "text-gray-500"

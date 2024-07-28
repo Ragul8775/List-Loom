@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { CiSettings } from "react-icons/ci";
 
 export const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -127,11 +128,7 @@ export const Header = () => {
           <div className="flex gap-6">
             <div className="flex items-center gap-10">
               <div className="flex items-center gap-2">
-                {theme === "light" ? (
-                  <MoonIcon className="h-6 w-6" />
-                ) : (
-                  <SunIcon className="h-6 w-6" />
-                )}
+                <CiSettings className="h-6 w-6" />
               </div>
               <div className="hidden sm:inline-block relative">
                 {session ? (

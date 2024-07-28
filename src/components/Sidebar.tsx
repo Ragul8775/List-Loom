@@ -134,8 +134,8 @@ const Sidebar = () => {
             <span>Create new</span>
           </button>
         </div>
-        <ThemeToggle />
       </div>
+      <ThemeToggle />
     </div>
   );
 };
