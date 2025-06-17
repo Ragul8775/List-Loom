@@ -16,7 +16,7 @@ interface Project {
 const initialProjects: Project[] = [
   {
     id: "1",
-    name: "Ecommerce Yala",
+    name: "Ecommerce ",
     description: "Website Design",
     dueDate: new Date("2023-03-15"),
   },
